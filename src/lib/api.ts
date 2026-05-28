@@ -1,6 +1,17 @@
 import type { AuthResponse } from "@mkopoflow/shared";
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "";
+/** Backend origin only — paths already include `/api/v1/...`. Do not append `/api`. */
+function resolveApiBase(): string {
+  const raw = (import.meta.env.VITE_API_URL ?? "").trim().replace(/\/+$/, "");
+  if (!raw) return "";
+  // Common misconfig: base ends with /api while paths are /api/v1/...
+  if (raw.endsWith("/api")) {
+    return raw.slice(0, -4);
+  }
+  return raw;
+}
+
+const API_BASE = resolveApiBase();
 
 type ApiError = { error: string; details?: unknown };
 
