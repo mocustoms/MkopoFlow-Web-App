@@ -7,9 +7,9 @@
     "preinstall": "node scripts/ensure-shared.mjs",
     "sync:shared": "node scripts/sync-shared.mjs",
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc --noEmit -p tsconfig.json && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "packageManager": "pnpm@10.11.0",
   "engines": {
@@ -25,7 +25,8 @@
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.15.1",
     "tailwind-variants": "^3.2.2",
-    "tailwindcss": "^4.3.0"
+    "tailwindcss": "^4.3.0",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@types/react": "^19.1.6",

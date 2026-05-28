@@ -1,22 +1,17 @@
-import { cpSync, existsSync, mkdirSync, rmSync } from "node:fs";
+import { cpSync, existsSync, rmSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const target = join(root, "packages/shared");
-const source = join(root, "../backend/packages/shared");
+const targetSrc = join(root, "packages/shared/src");
+const sourceSrc = join(root, "../backend/packages/shared/src");
 
-if (!existsSync(join(source, "package.json"))) {
-  console.error("Backend shared package not found at", source);
+if (!existsSync(sourceSrc)) {
+  console.error("Backend shared source not found at", sourceSrc);
   process.exit(1);
 }
 
-// Replace symlink or stale copy — must be real files in git for Railway/Docker.
-rmSync(target, { recursive: true, force: true });
-mkdirSync(target, { recursive: true });
+rmSync(targetSrc, { recursive: true, force: true });
+cpSync(sourceSrc, targetSrc, { recursive: true });
 
-for (const name of ["package.json", "tsconfig.json", "src"]) {
-  cpSync(join(source, name), join(target, name), { recursive: true });
-}
-
-console.log("Synced packages/shared from MkopoFlow backend.");
+console.log("Synced packages/shared/src from MkopoFlow backend.");

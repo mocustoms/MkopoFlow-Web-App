@@ -27,7 +27,7 @@ export function TopBar({
   const displayName = auth?.user.name ?? auth?.user.email ?? "User";
   const initials = displayName
     .split(" ")
-    .map((p) => p[0])
+    .map((part: string) => part[0])
     .join("")
     .slice(0, 2)
     .toUpperCase();

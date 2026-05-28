@@ -10,7 +10,10 @@
     "noEmit": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "paths": {
+      "@mkopoflow/shared": ["./packages/shared/src/index.ts"]
+    }
   },
   "include": ["src"]
 }
