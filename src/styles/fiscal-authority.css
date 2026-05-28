@@ -1,0 +1,451 @@
+/**
+ * Fiscal Authority — MkopoFlow design system
+ * Flat colors only. No gradients. Structural depth via 1px borders.
+ *
+ * Typography (Inter):
+ * - 700 Bold: financial amounts (TZS / principal)
+ * - 400 Regular: labels, headers
+ * - 500 Medium: status badges, actionable links
+ */
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-accent: var(--brand-accent);
+  --color-bg-surface: var(--bg-surface);
+  --color-status-success: var(--status-success);
+  --color-status-alert: var(--status-alert);
+  --color-border-fiscal: var(--border-color);
+  --color-fiscal-white: var(--fiscal-panel);
+  --color-fiscal-muted: var(--color-fiscal-muted);
+  --color-sidebar-fg: var(--sidebar-fg);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar-icon: var(--sidebar-icon);
+}
+
+@layer base {
+  :root,
+  .light,
+  .default,
+  [data-theme="light"],
+  [data-theme="default"] {
+    /* Fiscal Authority tokens */
+    --brand-primary: #212121;
+    --brand-accent: #5d4037;
+    --bg-surface: #fbfbfb;
+    --status-success: #1b5e20;
+    --status-alert: #bf360c;
+    --border-color: #e0e0e0;
+    --fiscal-panel: #ffffff;
+    --color-fiscal-white: var(--fiscal-panel);
+    --color-fiscal-muted: #616161;
+    --sidebar-bg: #f0f0f0;
+    --sidebar-fg: #212121;
+    --sidebar-muted: #616161;
+    --sidebar-border: #e0e0e0;
+    --sidebar-hover: #e8e8e8;
+    --sidebar-active-bg: #ffffff;
+    --sidebar-active-fg: #212121;
+    --sidebar-icon: #5d4037;
+    --sidebar-icon-active: #4e342e;
+    --on-accent: #fbfbfb;
+    --primary-hover: #333333;
+
+    /* HeroUI semantic mapping */
+    --background: var(--bg-surface);
+    --foreground: var(--brand-primary);
+    --surface: var(--color-fiscal-white);
+    --surface-foreground: var(--brand-primary);
+    --surface-secondary: var(--bg-surface);
+    --surface-secondary-foreground: var(--brand-primary);
+    --surface-tertiary: var(--bg-surface);
+    --accent: var(--brand-accent);
+    --accent-foreground: #fbfbfb;
+    --success: var(--status-success);
+    --success-foreground: #ffffff;
+    --warning: var(--status-alert);
+    --warning-foreground: #ffffff;
+    --danger: var(--status-alert);
+    --danger-foreground: #ffffff;
+    --muted: var(--color-fiscal-muted);
+    --border: var(--border-color);
+    --separator: var(--border-color);
+    --focus: var(--brand-accent);
+    --link: var(--brand-accent);
+    --default: var(--bg-surface);
+    --default-foreground: var(--brand-primary);
+
+    /* No shadows — borders define structure */
+    --surface-shadow: none;
+    --overlay-shadow: none;
+    --field-shadow: none;
+
+    /* Form fields — visible borders (HeroUI default is borderless/transparent) */
+    --field-background: var(--fiscal-panel);
+    --field-foreground: var(--brand-primary);
+    --field-placeholder: var(--color-fiscal-muted);
+    --field-border: var(--border-color);
+    --field-border-width: 1px;
+    --field-radius: 0.25rem;
+    --field-hover: var(--default-hover);
+    --field-focus: var(--fiscal-panel);
+    --field-border-hover: var(--border-color);
+    --field-border-focus: var(--brand-accent);
+
+    /* Flat hovers */
+    --surface-hover: #f5f5f5;
+    --accent-hover: #4e342e;
+    --default-hover: #f0f0f0;
+  }
+
+  .dark,
+  [data-theme="dark"] {
+    color-scheme: dark;
+
+    --brand-primary: #f5f5f5;
+    --brand-accent: #a1887f;
+    --bg-surface: #121212;
+    --status-success: #66bb6a;
+    --status-alert: #ff8a65;
+    --border-color: #424242;
+    --fiscal-panel: #1e1e1e;
+    --color-fiscal-white: var(--fiscal-panel);
+    --color-fiscal-muted: #9e9e9e;
+    --sidebar-bg: #0a0a0a;
+    --sidebar-fg: #f5f5f5;
+    --sidebar-muted: #bdbdbd;
+    --sidebar-border: #333333;
+    --sidebar-hover: #262626;
+    --sidebar-active-bg: #2a2a2a;
+    --sidebar-active-fg: #f5f5f5;
+    --sidebar-icon: #a1887f;
+    --sidebar-icon-active: #bcaaa4;
+    --on-accent: #f5f5f5;
+    --primary-hover: #424242;
+
+    --background: var(--bg-surface);
+    --foreground: var(--brand-primary);
+    --surface: var(--color-fiscal-white);
+    --surface-foreground: var(--brand-primary);
+    --surface-secondary: var(--bg-surface);
+    --surface-secondary-foreground: var(--brand-primary);
+    --surface-tertiary: var(--bg-surface);
+    --accent: var(--brand-accent);
+    --accent-foreground: var(--on-accent);
+    --muted: var(--color-fiscal-muted);
+    --border: var(--border-color);
+    --separator: var(--border-color);
+    --focus: var(--brand-accent);
+    --link: var(--brand-accent);
+    --default: var(--bg-surface);
+    --default-foreground: var(--brand-primary);
+    --surface-hover: #2a2a2a;
+    --accent-hover: #8d6e63;
+    --default-hover: #262626;
+
+    --field-background: var(--fiscal-panel);
+    --field-foreground: var(--brand-primary);
+    --field-placeholder: var(--color-fiscal-muted);
+    --field-border: var(--border-color);
+    --field-border-width: 1px;
+    --field-radius: 0.25rem;
+    --field-hover: var(--default-hover);
+    --field-focus: var(--fiscal-panel);
+    --field-border-hover: var(--border-color);
+    --field-border-focus: var(--brand-accent);
+    --field-shadow: none;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    background-color: var(--bg-surface);
+    color: var(--brand-primary);
+  }
+}
+
+@layer components {
+  /* Primary actions: charcoal */
+  .button--primary {
+    background-color: var(--brand-primary);
+    color: var(--on-accent);
+    box-shadow: none;
+    font-weight: 500;
+  }
+
+  .button--primary:hover:not(:disabled) {
+    background-color: var(--primary-hover);
+  }
+
+  :is(.dark, [data-theme="dark"]) .button--primary {
+    background-color: var(--color-fiscal-white);
+    color: var(--brand-primary);
+    border: 1px solid var(--border-color);
+  }
+
+  :is(.dark, [data-theme="dark"]) .button--primary:hover:not(:disabled) {
+    background-color: var(--surface-hover);
+  }
+
+  /* Cards: 1px border, no shadow */
+  .card,
+  .card--default,
+  .card--secondary {
+    box-shadow: none;
+    border: 1px solid var(--border-color);
+    background-color: var(--color-fiscal-white);
+  }
+
+  .card__title {
+    color: var(--brand-primary);
+    font-weight: 400;
+  }
+
+  .card__description {
+    color: var(--color-fiscal-muted);
+    font-weight: 400;
+  }
+
+  .alert {
+    box-shadow: none;
+    border: 1px solid var(--border-color);
+  }
+
+  .chip {
+    box-shadow: none;
+    font-weight: 500;
+  }
+
+  /* —— Typography hierarchy —— */
+
+  /** Secondary labels, section headers, card titles */
+  .fiscal-label {
+    font-weight: 400;
+    color: var(--color-fiscal-muted);
+  }
+
+  .fiscal-heading {
+    font-weight: 400;
+    color: var(--brand-primary);
+  }
+
+  /** TZS, principal, and all monetary values */
+  .fiscal-figure {
+    font-weight: 700;
+    color: var(--brand-primary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .fiscal-figure--success {
+    color: var(--status-success);
+  }
+
+  .fiscal-figure--alert {
+    color: var(--status-alert);
+  }
+
+  /** Status badges, chips, tags */
+  .fiscal-badge {
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /** Nav items, AuthLink, breadcrumbs, text buttons */
+  .fiscal-link {
+    font-weight: 500;
+    color: var(--brand-accent);
+  }
+
+  .fiscal-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Panels */
+  .fiscal-panel {
+    background-color: var(--color-fiscal-white);
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+  }
+
+  .fiscal-panel--sidebar {
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--sidebar-border);
+    color: var(--sidebar-fg);
+  }
+
+  .fiscal-sidebar-title {
+    color: var(--sidebar-fg);
+  }
+
+  .fiscal-sidebar-subtitle {
+    color: var(--sidebar-muted);
+  }
+
+  .fiscal-sidebar-link {
+    color: var(--sidebar-fg);
+    font-weight: 500;
+  }
+
+  .fiscal-sidebar-link:hover {
+    background-color: var(--sidebar-hover);
+  }
+
+  .fiscal-sidebar-link--active {
+    border: 1px solid var(--sidebar-border);
+    background-color: var(--sidebar-active-bg);
+    color: var(--sidebar-active-fg);
+  }
+
+  .fiscal-sidebar-link--muted {
+    color: var(--sidebar-muted);
+  }
+
+  .fiscal-sidebar-link--muted:hover {
+    color: var(--sidebar-fg);
+    background-color: var(--sidebar-hover);
+  }
+
+  .fiscal-sidebar-border {
+    border-color: var(--sidebar-border);
+  }
+
+  .fiscal-sidebar-icon {
+    color: var(--sidebar-icon);
+  }
+
+  .fiscal-sidebar-link--active .fiscal-sidebar-icon {
+    color: var(--sidebar-icon-active);
+  }
+
+  /* Sidebar: keep typography/icons readable (override main-content + HeroUI button colors) */
+  .fiscal-panel--sidebar .fiscal-heading {
+    color: var(--sidebar-fg);
+  }
+
+  .fiscal-panel--sidebar .fiscal-label {
+    color: var(--sidebar-muted);
+  }
+
+  .fiscal-panel--sidebar [data-slot="button"] {
+    color: inherit;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .fiscal-panel--sidebar [data-slot="button"]:hover:not(:disabled) {
+    background-color: var(--sidebar-hover);
+  }
+
+  .fiscal-panel--sidebar .fiscal-sidebar-link--active[data-slot="button"]:hover:not(:disabled) {
+    background-color: var(--sidebar-active-bg);
+  }
+
+  /* HeroUI Input/TextArea inside TextField — reinforce visible field chrome */
+  [data-slot="textfield"] [data-slot="input"],
+  [data-slot="textfield"] [data-slot="textarea"] {
+    min-height: 2.5rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--color-fiscal-white);
+    color: var(--brand-primary);
+  }
+
+  [data-slot="textfield"] [data-slot="input"]:disabled,
+  [data-slot="textfield"] [data-slot="textarea"]:disabled,
+  [data-slot="textfield"] [data-slot="input"][data-disabled="true"],
+  [data-slot="textfield"] [data-slot="textarea"][data-disabled="true"] {
+    opacity: 0.6;
+  }
+
+  .fiscal-select {
+    width: 100%;
+    border-radius: 0.25rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--color-fiscal-white);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--brand-primary);
+  }
+
+  .fiscal-select:disabled {
+    opacity: 0.6;
+  }
+
+  /* Tables: tabular nums on all cells for aligned currency columns */
+  .fiscal-table-wrap {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid var(--border-color);
+    background-color: var(--color-fiscal-white);
+    overflow-x: auto;
+  }
+
+  /* Wide add/edit modals (SettingsFormModal xl / 2xl) */
+  .modal__dialog--scroll-inside.modal__dialog--lg {
+    width: 100%;
+  }
+
+  .fiscal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .fiscal-table thead {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .fiscal-table th {
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 400;
+    color: var(--color-fiscal-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .fiscal-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 400;
+    color: var(--brand-primary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .fiscal-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .fiscal-table td.fiscal-figure,
+  .fiscal-table th.fiscal-figure,
+  .fiscal-table .fiscal-figure {
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .fiscal-table td.fiscal-figure--success {
+    color: var(--status-success);
+    font-weight: 700;
+  }
+
+  .fiscal-table td.fiscal-figure--alert {
+    color: var(--status-alert);
+    font-weight: 700;
+  }
+
+  .progress-bar__track {
+    box-shadow: none;
+  }
+
+  .progress-bar__output {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+  }
+}
