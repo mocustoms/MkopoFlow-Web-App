@@ -5,7 +5,9 @@ dist
 .env.*
 !.env.example
 *.tsbuildinfo
-packages/shared
+packages/shared/node_modules
+packages/shared/dist
+packages/shared/.turbo
 .DS_Store
 *.log
 .vscode

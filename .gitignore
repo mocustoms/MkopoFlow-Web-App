@@ -1,6 +1,3 @@
-# Linked copy of @mkopoflow/shared (see scripts/ensure-shared.mjs)
-packages/shared
-
 # Dependencies
 node_modules/
 

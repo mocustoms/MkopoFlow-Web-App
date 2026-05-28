@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "preinstall": "node scripts/ensure-shared.mjs",
+    "sync:shared": "node scripts/sync-shared.mjs",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
