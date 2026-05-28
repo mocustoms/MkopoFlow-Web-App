@@ -1,0 +1,15 @@
+# MkopoFlow Web App — Railway config
+# https://docs.railway.com/guides/config-as-code
+#
+# Connect repo mocustoms/MkopoFlow-Web-App (develop), set root directory to /
+# if using a monorepo subfolder, set the service root to web-application instead.
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 120
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5

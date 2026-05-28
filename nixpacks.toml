@@ -1,0 +1,3 @@
+# Railway Nixpacks/Railpack: ensure git is available for preinstall (packages/shared clone).
+[phases.setup]
+nixPkgs = ["git"]

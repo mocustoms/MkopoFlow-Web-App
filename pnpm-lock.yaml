@@ -15,8 +15,8 @@ importers:
         specifier: ^3.0.5
         version: 3.0.5(tailwind-merge@3.4.0)(tailwindcss@4.3.0)
       '@mkopoflow/shared':
-        specifier: file:../backend/packages/shared
-        version: file:../backend/packages/shared
+        specifier: file:./packages/shared
+        version: file:packages/shared
       '@tailwindcss/vite':
         specifier: ^4.3.0
         version: 4.3.0(vite@6.4.2(jiti@2.7.0)(lightningcss@1.32.0))
@@ -373,8 +373,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@mkopoflow/shared@file:../backend/packages/shared':
-    resolution: {directory: ../backend/packages/shared, type: directory}
+  '@mkopoflow/shared@file:packages/shared':
+    resolution: {directory: packages/shared, type: directory}
 
   '@radix-ui/react-avatar@1.1.11':
     resolution: {integrity: sha512-0Qk603AHGV28BOBO34p7IgD5m+V5Sg/YovfayABkoDDBM5d3NCx0Mp4gGrjzLGes1jV5eNOE1r3itqOR33VC6Q==}
@@ -1495,7 +1495,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@mkopoflow/shared@file:../backend/packages/shared':
+  '@mkopoflow/shared@file:packages/shared':
     dependencies:
       zod: 3.25.76
 

@@ -1,0 +1,19 @@
+# MkopoFlow Web — static SPA on Railway (TLS terminated by Railway)
+{
+	auto_https off
+}
+
+:{$PORT:8080} {
+	root * dist
+	encode gzip
+
+	# Railway health checks should not fall through to index.html only
+	handle /health {
+		respond "ok" 200
+	}
+
+	handle {
+		try_files {path} /index.html
+		file_server
+	}
+}
