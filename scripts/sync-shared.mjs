@@ -11,6 +11,7 @@ if (!existsSync(join(source, "package.json"))) {
   process.exit(1);
 }
 
+// Replace symlink or stale copy — must be real files in git for Railway/Docker.
 rmSync(target, { recursive: true, force: true });
 mkdirSync(target, { recursive: true });
 
